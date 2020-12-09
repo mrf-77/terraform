@@ -4,7 +4,7 @@ provider "aws" {
     secret_key = var.secretKey
 }
 
-resource "aws_instance" "App_server" {
+resource "aws_instance" "App_server1" {
     ami           = var.imageId
     instance_type = var.instanceType
     key_name      = var.keypair
@@ -20,8 +20,8 @@ resource "aws_instance" "App_server" {
   
 }
 
-resource "aws_security_group" "All_specific_ports_12" {
-  name ="All_specific_ports_12"
+resource "aws_security_group" "All_specific_ports_13" {
+  name ="All_specific_ports_13"
   description ="Allow all ports"
   vpc_id      = var.vpc_id
 
@@ -40,18 +40,18 @@ resource "aws_security_group" "All_specific_ports_12" {
   }
 
   tags = {
-    Name = "allow_ports_1"
+    Name = "allow_ports_2"
   }
 }
 
-resource "aws_db_instance" "aws_db_instance_1" {
+resource "aws_db_instance" "aws_db_instance_2" {
   allocated_storage    = 10
   storage_type         = "gp2"
   engine               = "mysql"
   engine_version       = "5.7"
   instance_class       = "db.t2.micro"
   name                 = "mydb"
-  username             = "raghu"
-  password             = "raghu1234"
+  username             = "suman"
+  password             = "suman1234"
   parameter_group_name = "default.mysql5.7"
 }
